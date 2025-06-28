@@ -5,7 +5,7 @@ export const handleCopyEmail = () => {
   navigator.clipboard
     .writeText(email)
     .then(() => {
-      toast.warning("Email Copied");
+      toast.success("Email Copied");
     })
     .catch(() => {
       toast.error("Failed To Copy");

@@ -11,15 +11,15 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="outline"
+      variant="accentGhost"
       size="icon"
       onClick={toggleTheme}
-      className="group transition cursor-pointer rounded-full"
+      className="group  cursor-pointer rounded-full"
     >
       {theme === "dark" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] transition-all duration-300 group-hover:rotate-30" />
+        <Sun className="h-[1.2rem] w-[1.2rem] transition-all " />
       ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] transition-all duration-300 group-hover:rotate-30" />
+        <Moon className="h-[1.2rem] w-[1.2rem] transition-all " />
       )}
     </Button>
   );
