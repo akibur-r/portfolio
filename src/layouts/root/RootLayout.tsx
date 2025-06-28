@@ -1,13 +1,9 @@
-import { ThemeToggle } from "@/components/shared/themeToggle/ThemeToggle";
-import { Button } from "@/components/ui/button";
+import Navbar from "@/components/shared/navbar/Navbar";
 
 const RootLayout = () => {
   return (
-    <div className="font-fancy">
-      <ThemeToggle />
-      hello <span className="font-primary">there</span>
-      <div className="p-4 bg-primary">lksjkfd</div>
-      <Button variant={'secondary'} />
+    <div className="container font-fancy relative mx-auto scroll-my-12 overflow-auto px-4 pt-6 md:p-x-16 md:pt-16">
+      <Navbar className={"mx-auto w-full max-w-[45rem] space-y-8"} />
     </div>
   );
 };
