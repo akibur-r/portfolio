@@ -4,7 +4,7 @@ import { ThemeToggle } from "../buttons/themeToggle/ThemeToggle";
 
 const TopNav = () => {
   return (
-    <div className="flex gap-1 py-1 items-center justify-end">
+    <div className="flex gap-1 py-1 items-center sm:justify-end">
       <RickRoll />
       <LanguageToggle />
       <ThemeToggle />

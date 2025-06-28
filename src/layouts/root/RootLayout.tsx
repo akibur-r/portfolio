@@ -1,4 +1,4 @@
-import Navbar from "@/components/shared/navbar/Navbar";
+import Hero from "@/components/homepage/hero/Hero";
 import TopNav from "@/components/shared/navbar/TopNav";
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/sonner";
@@ -13,7 +13,7 @@ const RootLayout = () => {
         </div>
 
         <div className="px-4 pt-6 md:px-16 md:pt-14">
-          <Navbar className={"mx-auto w-full max-w-[45rem] space-y-8"} />
+          <Hero className={"mx-auto w-full max-w-[45rem] space-y-8"} />
         </div>
       </div>
       <Toaster

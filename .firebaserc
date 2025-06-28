@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "akib-portfolio-24a44"
+  },
+  "targets": {
+    "akib-portfolio-24a44": {
+      "hosting": {
+        "main": [
+          "akib-portfolio-24a44"
+        ],
+        "alt": [
+          "akibur"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
