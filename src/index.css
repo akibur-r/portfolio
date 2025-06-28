@@ -41,6 +41,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --font-basic: sans-serif;
   --font-primary: "Saira", sans-serif;
   --font-fancy: "Cinzel", serif;
 }

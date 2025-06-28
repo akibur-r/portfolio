@@ -1,3 +1,4 @@
+import About from "@/components/homepage/about/About";
 import Hero from "@/components/homepage/hero/Hero";
 import TopNav from "@/components/shared/navbar/TopNav";
 import { Separator } from "@/components/ui/separator";
@@ -6,14 +7,17 @@ import { Toaster } from "@/components/ui/sonner";
 const RootLayout = () => {
   return (
     <>
-      <div className="container font-primary relative mx-auto scroll-my-12 overflow-auto">
+      <div className="container font-primary relative mx-auto scroll-my-12">
         <div className="mx-auto w-full max-w-[45rem] py-1">
           <TopNav />
           <Separator />
         </div>
 
         <div className="px-4 pt-6 md:px-16 md:pt-14">
-          <Hero className={"mx-auto w-full max-w-[45rem] space-y-8"} />
+          <div className="mx-auto w-full max-w-[45rem] space-y-8">
+            <Hero />
+            <About />
+          </div>
         </div>
       </div>
       <Toaster
