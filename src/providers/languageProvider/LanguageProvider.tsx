@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 
 interface LanguageContextType {
   currentLanguage?: string;
-  toggleLanguage?: () => void;
+  toggleLanguage: () => void;
 }
 
 export const LanguageContext = createContext<LanguageContextType>(

@@ -1,17 +1,17 @@
-import useLanguage from "@/hooks/useLanguage/useLanguage";
+import { ThemeToggle } from "@/components/shared/buttons/themeToggle/ThemeToggle";
+
 import React from "react";
-import { ThemeToggle } from "../themeToggle/ThemeToggle";
+import LanguageToggle from "../buttons/languageToggle/LanguageToggle";
 
 type NavbarProps = {
   className?: string;
 };
 
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
-  const { currentLanguage } = useLanguage();
   return (
-    <header className={`${className}`}>
+    <header className={`flex gap-2 ${className}`}>
       <ThemeToggle />
-      {currentLanguage}
+      <LanguageToggle/>
     </header>
   );
 };
