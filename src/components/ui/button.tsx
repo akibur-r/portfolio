@@ -23,13 +23,14 @@ const buttonVariants = cva(
         accent:
           "border border-neutral-300 dark:border-neutral-700 bg-background shadow-xs hover:bg-accent/20 hover:text-accent dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         accentGhost:
-          "duration-50 hover:bg-accent/20 hover:text-accent px-0 py-0 hover:p-2",
+          "duration-50 hover:bg-accent/20 hover:text-accent rounded cursor-pointer",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-9",
+        topNavIcon: "size-7",
       },
     },
     defaultVariants: {

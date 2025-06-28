@@ -1,4 +1,9 @@
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useTheme } from "@/providers/themeProvider/ThemeProvider";
 import { Moon, Sun } from "lucide-react";
 
@@ -10,17 +15,22 @@ export function ThemeToggle() {
   };
 
   return (
-    <Button
-      variant="accentGhost"
-      size="icon"
-      onClick={toggleTheme}
-      className="group  cursor-pointer rounded-full"
-    >
-      {theme === "dark" ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] transition-all " />
-      ) : (
-        <Moon className="h-[1.2rem] w-[1.2rem] transition-all " />
-      )}
-    </Button>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          variant="accentGhost"
+          size="topNavIcon"
+          onClick={toggleTheme}
+          className=" cursor-pointer rounded "
+        >
+          {theme === "dark" ? (
+            <Sun className="transition-all " />
+          ) : (
+            <Moon className="transition-all " />
+          )}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Switch Theme</TooltipContent>
+    </Tooltip>
   );
 }

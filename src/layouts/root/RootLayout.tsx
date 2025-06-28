@@ -1,11 +1,20 @@
 import Navbar from "@/components/shared/navbar/Navbar";
+import TopNav from "@/components/shared/navbar/TopNav";
+import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/sonner";
 
 const RootLayout = () => {
   return (
     <>
-      <div className="container font-primary relative mx-auto scroll-my-12 overflow-auto px-4 pt-6 md:p-x-16 md:pt-16">
-        <Navbar className={"mx-auto w-full max-w-[45rem] space-y-8"} />
+      <div className="container font-primary relative mx-auto scroll-my-12 overflow-auto">
+        <div className="mx-auto w-full max-w-[45rem] py-1">
+          <TopNav />
+          <Separator />
+        </div>
+
+        <div className="px-4 pt-6 md:px-16 md:pt-14">
+          <Navbar className={"mx-auto w-full max-w-[45rem] space-y-8"} />
+        </div>
       </div>
       <Toaster
         position="bottom-center"
