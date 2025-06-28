@@ -1,24 +1,20 @@
-import About from "@/components/homepage/about/About";
-import Hero from "@/components/homepage/hero/Hero";
 import TopNav from "@/components/shared/navbar/TopNav";
 import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/sonner";
+import { Outlet } from "react-router";
 
 const RootLayout = () => {
   return (
     <>
       <div className="container font-primary relative mx-auto scroll-my-12">
-        <div className="mx-auto w-full max-w-[45rem] py-1">
+        <header className="mx-auto w-full max-w-[45rem] py-1">
           <TopNav />
           <Separator />
-        </div>
+        </header>
 
-        <div className="px-4 pt-6 md:px-16 md:pt-14">
-          <div className="mx-auto w-full max-w-[45rem] space-y-8">
-            <Hero />
-            <About />
-          </div>
-        </div>
+        <main className="px-4 pt-6 md:px-16 md:pt-14">
+          <Outlet />
+        </main>
       </div>
       <Toaster
         position="bottom-center"

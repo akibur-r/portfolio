@@ -31,11 +31,11 @@ type HeroProps = {
 
 const Hero: React.FC<HeroProps> = ({ className }) => {
   return (
-    <header
+    <section
       className={`flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between gap-2 sm:gap-8 ${className}`}
     >
       {/* texts */}
-      <section className="flex flex-col gap-2 text-center sm:text-left">
+      <main className="flex flex-col gap-2 text-center sm:text-left">
         <h2 className="text-2xl font-semibold">Md. Akibur Rahman</h2>
         <div>
           <p className="max-w-md text-sm text-neutral-700 dark:text-neutral-400">
@@ -46,6 +46,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             <Link
               target={"_blank"}
               to={"https://maps.app.goo.gl/62XNVUswsrZcYoVy5"}
+              className="hover:underline"
             >
               Chattogram, Bangladesh
             </Link>
@@ -170,7 +171,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
             </Link>
           </div>
         </div>
-      </section>
+      </main>
 
       {/* photo */}
       <section>
@@ -181,7 +182,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
           </Avatar>
         </div>
       </section>
-    </header>
+    </section>
   );
 };
 

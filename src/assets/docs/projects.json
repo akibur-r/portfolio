@@ -1,0 +1,12 @@
+[
+  {
+    "id": "mern-project-1",
+    "name": "Aquabloom - Plantcare Redefined",
+    "year": 2025,
+    "github_link": "https://github.com/akibur-r/AQUABLOOM-plant-care-tracker",
+    "live_link": "https://aquabloom-by-akib.web.app/",
+    "description": "Aquabloom is a mobile-responsive, full-stack web application for plant enthusiasts. In this app, users can manage and monitor the care of their indoor and outdoor plants. The app offers adding, updating and deleting a plant's care schedule. Also, the app allows users to see other users' plants.",
+    "techStack": ["React", "MongoDB", "Express", "Node.js", "TailwindCSS"],
+    "screenshots": ["/", "/"]
+  }
+]
