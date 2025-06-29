@@ -19,7 +19,7 @@ const RickRoll = () => {
               "_blank"
             );
           }}
-          className="p-1"
+          className="p-1 text-neutral-700 dark:text-neutral-300"
         >
           <Info />
         </Button>

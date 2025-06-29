@@ -8,7 +8,7 @@ const Projects = () => {
       <SectionHeading name="My Projects" />
       <main className="grid grid-cols-1 gap-3">
         {projects.map((project) => (
-          <ProjectCard th project={project} />
+          <ProjectCard project={project} />
         ))}
       </main>
     </section>

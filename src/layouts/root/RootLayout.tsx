@@ -7,7 +7,7 @@ const RootLayout = () => {
   return (
     <>
       <div className="container font-primary relative mx-auto scroll-my-12">
-        <header className="mx-auto w-full max-w-[45rem] py-1">
+        <header className="mx-auto w-full max-w-[45rem] py-1 sticky top-0 z-50 bg-background">
           <TopNav />
           <Separator />
         </header>

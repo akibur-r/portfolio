@@ -21,7 +21,7 @@ export function ThemeToggle() {
           variant="accentGhost"
           size="topNavIcon"
           onClick={toggleTheme}
-          className=" cursor-pointer rounded "
+          className=" cursor-pointer rounded"
         >
           {theme === "dark" ? (
             <Sun className="transition-all " />

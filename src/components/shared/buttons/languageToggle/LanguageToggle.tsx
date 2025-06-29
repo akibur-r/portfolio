@@ -17,7 +17,7 @@ const LanguageToggle = () => {
           size={"topNavIcon"}
           variant={"accentGhost"}
           onClick={() => toggleLanguage()}
-          className="overflow-hidden p-1 cursor-pointer transition rounded group"
+          className="overflow-hidden flex p-1 cursor-pointer transition rounded group"
         >
           <img
             className="h-full w-full object-cover rounded-full group-hover:opacity-80"
