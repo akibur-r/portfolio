@@ -1,4 +1,3 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
   CardAction,
@@ -9,15 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 import type { ProjectType } from "@/types/project/ProjectType";
 
 import { BookOpen, Code, Play } from "lucide-react";
 import { Link } from "react-router";
+import ProjectScreenshotCard from "./ProjectScreenshotCard";
+import ProjectTechIcon from "./ProjectTechIcon";
 
 type ProjectCardProps = {
   project: ProjectType;
@@ -48,40 +44,55 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
     </>
   );
+
   return (
     <Card className="rounded-md">
       <CardHeader className="flex flex-col gap-x-12 sm:grid ">
-        <CardTitle className="flex gap-2">
-          {project.name}
-          <span className="opacity-50">—</span>
-          {project.year}
+        <CardTitle className="flex w-full items-center gap-2 justify-between md:justify-start">
+          <span className="flex-1 md:flex-none text-base md:text-lg">
+            {project.name}
+          </span>
+          <span className="space-x-2">
+            <span className="inline opacity-50">—</span>
+            <span className="text-foreground/70">{project.year}</span>
+          </span>
         </CardTitle>
-        <CardDescription>{project.description}</CardDescription>
+
+        <CardDescription className="text-neutral-800 dark:text-neutral-300">
+          {project.description}
+        </CardDescription>
         <CardAction className="hidden md:block">{actions}</CardAction>
       </CardHeader>
-      <CardContent className="space-y-2">
-        <div className="flex flex-wrap gap-2">
-          {project.screenshots.map((ss) => (
-            <HoverCard key={ss} openDelay={0} closeDelay={0}>
-              <HoverCardTrigger asChild>
-                <Avatar className="w-16 h-16 p-2 border rounded">
-                  <AvatarImage src={ss} />
-                  <AvatarFallback>SS</AvatarFallback>
-                </Avatar>
-              </HoverCardTrigger>
-              <HoverCardContent
-                align="center"
-                className="w-72 h-72 p-2 border rounded"
-              >
-                <img src={ss} alt="" />
-              </HoverCardContent>
-            </HoverCard>
-          ))}
+      <CardContent className="space-y-3">
+        <div className="space-y-1">
+          <h3 className="space-x-1 text-neutral-700 dark:text-neutral-300">
+            <span className="text-xs text-accent select-none">//</span>
+            <span>Built with</span>
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.map((tech) => (
+              <ProjectTechIcon key={tech} icon={tech} />
+            ))}
+          </div>
         </div>
-        <h3 className="space-x-1">
-          <span>Screenshots</span>
-          <span className="text-xs text-accent">(click on image to view)</span>
-        </h3>
+        <div className="space-y-1">
+          <h3 className="space-x-1 text-neutral-700 dark:text-neutral-300">
+            <span className="text-xs text-accent select-none">//</span>
+            <span>Screenshots</span>
+            <span className="text-xs text-accent md:hidden">
+              (click on image to view)
+            </span>
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {project.screenshots.length ? (
+              project.screenshots.map((ss, idx) => (
+                <ProjectScreenshotCard key={idx} ss={ss} />
+              ))
+            ) : (
+              <span className="text-destructive/80">No screenshot available</span>
+            )}
+          </div>
+        </div>
       </CardContent>
       <CardFooter className="md:hidden">
         <CardAction>{actions}</CardAction>

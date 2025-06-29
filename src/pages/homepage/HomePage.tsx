@@ -4,7 +4,7 @@ import Projects from "@/components/homepage/projects/Projects";
 
 const HomePage = () => {
   return (
-    <div className="mx-auto w-full max-w-[45rem] space-y-8">
+    <div className="mx-auto w-full max-w-[45rem] space-y-8 mb-2">
       <Hero />
       <About />
       <Projects />

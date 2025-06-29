@@ -176,7 +176,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
       {/* photo */}
       <section>
         <div className="w-fit h-fit border-3 border-primary/30 dark:border-primary/20 rounded-full p-0.5">
-          <Avatar className="w-24 h-24 sm:w-40 sm:h-40 ">
+          <Avatar className="w-28 h-28 sm:w-40 sm:h-40 ">
             <AvatarImage src={AkibPortrait} />
             <AvatarFallback>A</AvatarFallback>
           </Avatar>

@@ -1,0 +1,8 @@
+{
+  "react": "React JS",
+  "node": "Node.JS",
+  "express": "Express",
+  "mongodb": "MongoDB",
+  "tailwindcss": "TailwindCSS",
+  "firebase": "Firbase"
+}

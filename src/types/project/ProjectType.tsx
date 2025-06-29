@@ -1,3 +1,8 @@
+type ScreenshotType = {
+  dark: string;
+  light: string;
+};
+
 export type ProjectType = {
   id: string;
   name: string;
@@ -6,5 +11,5 @@ export type ProjectType = {
   live_link: string;
   description: string;
   techStack: string[];
-  screenshots: string[];
+  screenshots: ScreenshotType[];
 };
