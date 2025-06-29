@@ -1,4 +1,4 @@
-import { projects } from "@/assets/docs/projects";
+import { projects } from "@/assets/docs/projectsList";
 import SectionHeading from "@/components/shared/sectionHeading/SectionHeading";
 import ProjectCard from "./projectCard/ProjectCard";
 
