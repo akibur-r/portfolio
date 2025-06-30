@@ -22,7 +22,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { IoMdLink } from "react-icons/io";
-import { SiCodechef, SiCodeforces } from "react-icons/si";
+import { SiCodechef, SiCodeforces, SiWhatsapp } from "react-icons/si";
 import { Link } from "react-router";
 
 type HeroProps = {
@@ -123,6 +123,15 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     className="flex items-center gap-2 text-accent h-full w-full px-2 py-1.5"
                   >
                     <Phone className="w-2 h-2" /> Make a Call
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="p-0">
+                  <Link
+                    target={"_blank"}
+                    to={"https://wa.me/1934921875?text=Hello,%20"}
+                    className="flex items-center gap-2 text-accent h-full w-full px-2 py-1.5"
+                  >
+                    <SiWhatsapp className="w-2 h-2" /> Chat on WhatsApp
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
