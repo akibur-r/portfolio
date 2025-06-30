@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto w-full max-w-[45rem]">
+    <footer>
       <Separator />
       <div className="text-sm flex gap-1 items-center justify-center md:justify-start py-1">
         <span>Crafted with ❤️ by</span>

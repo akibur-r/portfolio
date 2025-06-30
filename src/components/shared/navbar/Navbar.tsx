@@ -18,7 +18,7 @@ import { ThemeToggle } from "../buttons/themeToggle/ThemeToggle";
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <header className="mx-auto w-full max-w-[45rem] py-1 sticky top-0 z-50 bg-background">
+    <header className="py-1 sticky top-0 z-50 bg-background">
       <div className="flex items-center px-2 justify-between">
         {/* left */}
         <div className="w-fit flex gap-2">
@@ -27,7 +27,7 @@ const Navbar = () => {
             <NavLink to={"/"} className={"flex items-end hover:underline"}>
               Home
             </NavLink>
-            <NavLink to={"/blog"} className={"flex items-end hover:underline"}>
+            <NavLink to={"/blogs"} className={"flex items-end hover:underline"}>
               Blog
             </NavLink>
           </div>
