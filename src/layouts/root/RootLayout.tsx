@@ -1,20 +1,19 @@
-import TopNav from "@/components/shared/navbar/TopNav";
-import { Separator } from "@/components/ui/separator";
+import Footer from "@/components/shared/footer/Footer";
+import Navbar from "@/components/shared/navbar/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { Outlet } from "react-router";
 
 const RootLayout = () => {
   return (
     <>
-      <div className="container font-primary relative mx-auto scroll-my-12 text-neutral-800 dark:text-neutral-300">
-        <header className="mx-auto w-full max-w-[45rem] py-1 sticky top-0 z-50 bg-background">
-          <TopNav />
-          <Separator />
-        </header>
+      <div className="container font-primary relative mx-auto scroll-my-12 text-neutral-800 dark:text-neutral-300 ">
+        <Navbar />
 
-        <main className="px-4 pt-6 md:px-16 md:pt-14">
+        <main className="px-4 pt-6 md:px-16 md:pt-14 pb-3">
           <Outlet />
         </main>
+
+        <Footer />
       </div>
       <Toaster
         position="bottom-center"
