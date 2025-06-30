@@ -113,25 +113,37 @@ const Navbar = () => {
 
       <header className="fixed md:hidden bottom-8 right-8 z-50">
         <DropdownMenu open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-          <DropdownMenuTrigger className="bg-background ring-3 ring-neutral-600 p-1 rounded">
+          <DropdownMenuTrigger className="bg-background ring-2 ring-neutral-600 p-1 rounded">
             {mobileMenuOpen ? <X /> : <Bubbles />}
           </DropdownMenuTrigger>
           <DropdownMenuContent className="dark:border-accent/10 flex flex-col rounded min-w-0">
             <DropdownMenuItem className="p-0" asChild>
-              <Link
-                to={"/"}
-                className={`text-neutral-800 px-2 py-1 dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
-              >
-                About
-              </Link>
+              <div className="flex gap-1 py-1">
+                <RickRoll />
+                <LanguageToggle />
+                <ThemeToggle />
+              </div>
             </DropdownMenuItem>
-            <Separator/>
+
+            <Separator />
+
             <DropdownMenuItem className="p-0" asChild>
               <Link
                 to={"/blogs"}
                 className={`text-neutral-800 px-2  dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
               >
                 Blog
+              </Link>
+            </DropdownMenuItem>
+
+            <Separator />
+
+            <DropdownMenuItem className="p-0" asChild>
+              <Link
+                to={"/"}
+                className={`text-neutral-800 px-2 py-1 dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
+              >
+                About
               </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
