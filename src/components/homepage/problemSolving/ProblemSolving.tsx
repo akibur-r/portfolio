@@ -1,0 +1,37 @@
+// import CodeforcesLogo from "@/assets/images/codeforces_logo.png";
+import { problemSolvingAchievements } from "@/assets/docs/problemSolvingAchievements";
+import SectionHeading from "@/components/shared/sectionHeading/SectionHeading";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const ProblemSolving = () => {
+  return (
+    <section className="relative">
+      <SectionHeading name="Problem Solving" />
+      <main>
+        <Accordion type="single" collapsible>
+          {problemSolvingAchievements.map(
+            ({ title, date, description, host }) => (
+              <AccordionItem value={title}>
+                <AccordionTrigger>{title}</AccordionTrigger>
+                <AccordionContent className="space-y-2">
+                  <div>
+                    <p className="text-xs">{date}</p>
+                    <p>Host: {host}</p>
+                  </div>
+                  <p>{description}</p>
+                </AccordionContent>
+              </AccordionItem>
+            )
+          )}
+        </Accordion>
+      </main>
+    </section>
+  );
+};
+
+export default ProblemSolving;

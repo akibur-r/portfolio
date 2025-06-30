@@ -9,7 +9,7 @@ const RootLayout = () => {
       <div className="container font-primary relative mx-auto scroll-my-12 text-neutral-800 dark:text-neutral-300 w-full max-w-[45rem]">
         <Navbar />
 
-        <main className="pt-6 px-4 md:pt-14 pb-3 space-y-8">
+        <main className="pt-6 px-4 md:px-2 md:pt-14 pb-3 space-y-8">
           <Outlet />
         </main>
 
