@@ -7,9 +7,11 @@ const Projects = () => {
     <section className="text-sm text-neutral-800 dark:text-neutral-300 ">
       <SectionHeading name="My Projects" />
       <main className="grid grid-cols-1 gap-3">
-        {projects.map((project) => (
-          <ProjectCard project={project} />
-        ))}
+        {projects
+          .sort((a, b) => b.id.localeCompare(a.id))
+          .map((project) => (
+            <ProjectCard project={project} />
+          ))}
       </main>
     </section>
   );

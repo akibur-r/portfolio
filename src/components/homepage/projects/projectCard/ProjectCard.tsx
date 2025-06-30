@@ -10,7 +10,14 @@ import {
 
 import type { ProjectType } from "@/types/project/ProjectType";
 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { BookOpen, Code, Play } from "lucide-react";
+import { BiDevices, BiServer } from "react-icons/bi";
 import { Link } from "react-router";
 import ProjectScreenshotCard from "./ProjectScreenshotCard";
 import ProjectTechIcon from "./ProjectTechIcon";
@@ -20,25 +27,60 @@ type ProjectCardProps = {
 };
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const cardActionButtonStyle =
-    "flex items-center gap-1 border px-2 py-1 rounded w-full hover:bg-accent/10 hover:text-accent";
+    "flex items-center gap-1 border px-2 py-1 rounded w-full hover:bg-accent/10 hover:text-accent cursor-pointer";
+
+  const {
+    id,
+    name,
+    year,
+    description,
+    live_link,
+    github_link,
+    techStack,
+    screenshots,
+  } = project;
   const actions = (
     <>
       <div className="flex md:flex-col gap-1">
-        <Link
-          target="_blank"
-          to={project.github_link}
-          className={cardActionButtonStyle}
-        >
-          <Code className="w-3 h-3" /> code
-        </Link>
-        <Link
-          target="_blank"
-          to={project.live_link}
-          className={cardActionButtonStyle}
-        >
+        {github_link.length > 1 ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger className={cardActionButtonStyle}>
+              <Code className="w-3 h-3" /> code
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="dark:border-accent/10 rounded min-w-0 space-y-1">
+              <DropdownMenuItem className="p-0" asChild>
+                <Link
+                  target={"_blank"}
+                  to={github_link[0]}
+                  className={`${cardActionButtonStyle} text-neutral-800  dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
+                >
+                  <BiDevices className="w-2 h-2" /> client
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="p-0" asChild>
+                <Link
+                  target={"_blank"}
+                  to={github_link[1]}
+                  className={`${cardActionButtonStyle} text-neutral-800 dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
+                >
+                  <BiServer className="w-2 h-2" /> server
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <Link
+            target="_blank"
+            to={github_link[0]}
+            className={cardActionButtonStyle}
+          >
+            <Code className="w-3 h-3" /> code
+          </Link>
+        )}
+        <Link target="_blank" to={live_link} className={cardActionButtonStyle}>
           <Play className="w-3 h-3" /> live
         </Link>
-        <Link to={`/project/${project.id}`} className={cardActionButtonStyle}>
+        <Link to={`/project/${id}`} className={cardActionButtonStyle}>
           <BookOpen className="w-3 h-3" /> study
         </Link>
       </div>
@@ -50,16 +92,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <CardHeader className="flex flex-col gap-x-12 sm:grid ">
         <CardTitle className="flex w-full items-center gap-2 justify-between md:justify-start">
           <span className="flex-1 md:flex-none text-base md:text-lg">
-            {project.name}
+            {name}
           </span>
           <span className="space-x-2">
             <span className="inline opacity-50">—</span>
-            <span className="text-foreground/70">{project.year}</span>
+            <span className="text-foreground/70">{year}</span>
           </span>
         </CardTitle>
 
         <CardDescription className="text-neutral-800 dark:text-neutral-300">
-          {project.description}
+          {description}
         </CardDescription>
         <CardAction className="hidden md:block">{actions}</CardAction>
       </CardHeader>
@@ -70,7 +112,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <span>Built with</span>
           </h3>
           <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech) => (
+            {techStack.map((tech) => (
               <ProjectTechIcon key={tech} icon={tech} />
             ))}
           </div>
@@ -84,12 +126,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             </span>
           </h3>
           <div className="flex flex-wrap gap-2">
-            {project.screenshots.length ? (
-              project.screenshots.map((ss, idx) => (
+            {screenshots.length ? (
+              screenshots.map((ss, idx) => (
                 <ProjectScreenshotCard key={idx} ss={ss} />
               ))
             ) : (
-              <span className="text-destructive/80">No screenshot available</span>
+              <span className="text-destructive/80">
+                No screenshot available
+              </span>
             )}
           </div>
         </div>
