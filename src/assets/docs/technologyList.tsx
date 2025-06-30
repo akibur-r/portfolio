@@ -57,7 +57,7 @@ export const technologies = {
       icon: getIcon("express").icon,
     },
     {
-      name: "firebase",
+      name: "Firebase",
       icon: getIcon("firebase").icon,
     },
     {
