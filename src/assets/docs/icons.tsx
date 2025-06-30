@@ -51,7 +51,6 @@ export const icons = {
       ghost: "bg-[#E8680010] border-[#E8680040] dark:border-[#E8680020]",
     },
   },
-
   axios: {
     icon: <SiAxios className="size-4 md:size-5 text-[#FF9800]" />,
     classes: {
@@ -94,7 +93,9 @@ export const icons = {
   },
 
   markdown: {
-    icon: <SiMarkdown className="size-4 md:size-5 text-[#000000]" />,
+    icon: (
+      <SiMarkdown className="size-4 md:size-5 text-[#000000] dark:text-neutral-300" />
+    ),
     classes: {
       ghost: "bg-[#00000010] border-[#00000040] dark:border-[#00000020]",
     },

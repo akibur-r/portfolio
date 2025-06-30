@@ -4,7 +4,7 @@ import ProjectCard from "./projectCard/ProjectCard";
 
 const Projects = () => {
   return (
-    <section className="text-sm text-neutral-800 dark:text-neutral-300 ">
+    <section className="text-sm">
       <SectionHeading name="My Projects" />
       <main className="grid grid-cols-1 gap-3">
         {projects

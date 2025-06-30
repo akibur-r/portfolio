@@ -42,10 +42,7 @@ const Technologies = () => {
   }, [activeTab]);
 
   return (
-    <section
-      ref={containerRef}
-      className="text-neutral-800 dark:text-neutral-300"
-    >
+    <section ref={containerRef}>
       <SectionHeading name="Technologies" />
       <main>
         <Tabs value={activeTab} onValueChange={setActiveTab}>
