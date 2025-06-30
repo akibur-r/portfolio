@@ -1,58 +1,69 @@
 import { technologies } from "@/assets/docs/technologyList";
 import SectionHeading from "@/components/shared/sectionHeading/SectionHeading";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { TechnologyCategoryType } from "@/types/technology/TechnologyType";
+import { useEffect, useRef, useState } from "react";
 import TechnologyBadge from "./technologyBadge/TechnologyBadge";
 
 const Technologies = () => {
+  const categories: TechnologyCategoryType[] = [
+    "languages",
+    "frontend",
+    "backend",
+    "tools",
+  ];
+  const [activeTab, setActiveTab] = useState("languages");
+  const containerRef = useRef<HTMLElement>(null);
+
+  const allTech = categories.flatMap((cat) =>
+    technologies[cat].map((tech) => ({
+      ...tech,
+      category: cat,
+    }))
+  );
+
+  const filteredTech =
+    activeTab === "all"
+      ? allTech
+      : allTech.filter((tech) => tech.category === activeTab);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollToPosition = scrollTop + rect.bottom;
+
+      window.scrollTo({
+        top: scrollToPosition,
+        behavior: "smooth",
+      });
+    }
+  }, [activeTab]);
+
   return (
-    <section className="text-neutral-800 dark:text-neutral-300">
+    <section
+      ref={containerRef}
+      className="text-neutral-800 dark:text-neutral-300"
+    >
       <SectionHeading name="Technologies" />
       <main>
-        <Tabs defaultValue="languages">
-          <TabsList className="">
-            <TabsTrigger value="languages">Languages</TabsTrigger>
-            <TabsTrigger value="frontend">Frontend</TabsTrigger>
-            <TabsTrigger value="backend">backend</TabsTrigger>
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <TabsList>
+            {categories.map((cat) => (
+              <TabsTrigger key={cat} value={cat}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </TabsTrigger>
+            ))}
             <TabsTrigger value="all">All</TabsTrigger>
           </TabsList>
 
           <TabsContent
-            value="languages"
-            className="flex flex-wrap gap-4 items-center "
+            value={activeTab}
+            className="grid grid-cols-4 md:grid-cols-5 gap-2 text-center"
           >
-            {technologies.languages.map((language) => (
-              <TechnologyBadge technology={language} />
-            ))}
-          </TabsContent>
-
-          <TabsContent
-            value="frontend"
-            className="flex flex-wrap gap-4 items-center "
-          >
-            {technologies.frontend.map((language) => (
-              <TechnologyBadge technology={language} />
-            ))}
-          </TabsContent>
-          <TabsContent
-            value="backend"
-            className="flex flex-wrap gap-4 items-center "
-          >
-            {technologies.backend.map((language) => (
-              <TechnologyBadge technology={language} />
-            ))}
-          </TabsContent>
-          <TabsContent
-            value="all"
-            className="flex flex-wrap gap-4 items-center "
-          >
-            {technologies.languages.map((language) => (
-              <TechnologyBadge technology={language} />
-            ))}
-            {technologies.frontend.map((language) => (
-              <TechnologyBadge technology={language} />
-            ))}
-            {technologies.backend.map((language) => (
-              <TechnologyBadge technology={language} />
+            {filteredTech.map((tech) => (
+              <TechnologyBadge key={tech.name} technology={tech} />
             ))}
           </TabsContent>
         </Tabs>

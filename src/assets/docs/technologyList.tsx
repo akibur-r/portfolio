@@ -65,4 +65,27 @@ export const technologies = {
       icon: getIcon("jwt").icon,
     },
   ],
+
+  tools: [
+    {
+      name: "Git",
+      icon: getIcon("git").icon,
+    },
+    {
+      name: "Github",
+      icon: getIcon("github").icon,
+    },
+    {
+      name: "Vercel",
+      icon: getIcon("vercel").icon,
+    },
+    {
+      name: "VSCode",
+      icon: getIcon("vscode").icon,
+    },
+    {
+      name: "Sublime Text",
+      icon: getIcon("sublimetext").icon,
+    },
+  ],
 };
