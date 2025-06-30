@@ -28,8 +28,13 @@ const Technologies = () => {
       : allTech.filter((tech) => tech.category === activeTab);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
+    const element = containerRef.current;
+    if (!element) return;
+
+    const rect = element.getBoundingClientRect();
+    const isPartiallyInView = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (isPartiallyInView) {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
       const scrollToPosition = scrollTop + rect.bottom;
