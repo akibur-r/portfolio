@@ -9,6 +9,14 @@ const ProjectDetailsPage = () => {
   const { id } = useParams();
   const project: ProjectType = getProjectById(id || "");
 
+  if (!project.id) {
+    return (
+      <span className="text-red-500/70 dark:text-red-300/70">
+        Project Not Found
+      </span>
+    );
+  }
+
   return (
     <div>
       {Object.keys(project).length > 0 ? (
