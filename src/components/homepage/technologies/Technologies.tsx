@@ -1,17 +1,27 @@
 import { technologies } from "@/assets/docs/technologyList";
 import SectionHeading from "@/components/shared/sectionHeading/SectionHeading";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import useLanguage from "@/hooks/useLanguage/useLanguage";
 import type { TechnologyCategoryType } from "@/types/technology/TechnologyType";
 import { useEffect, useRef, useState } from "react";
 import TechnologyBadge from "./technologyBadge/TechnologyBadge";
 
 const Technologies = () => {
+  const { currentLanguage } = useLanguage();
   const categories: TechnologyCategoryType[] = [
     "languages",
     "frontend",
     "backend",
     "tools",
   ];
+
+  const categories_bn = [
+    "প্রোগ্রামিং ভাষা",
+    "ফ্রন্ট এন্ড",
+    "ব্যাক এন্ড",
+    "টুলস",
+  ];
+
   const [activeTab, setActiveTab] = useState("languages");
   const [tabChanged, setTabChanged] = useState(false);
   const containerRef = useRef<HTMLElement>(null);
@@ -46,16 +56,20 @@ const Technologies = () => {
 
   return (
     <section ref={containerRef}>
-      <SectionHeading name="Technologies" />
+      <SectionHeading name_en="Technologies" name_bn="জানা প্রযুক্তি" />
       <main>
         <Tabs value={activeTab} onValueChange={setActiveTab}>
           <TabsList onClick={() => setTabChanged(true)}>
-            {categories.map((cat) => (
+            {categories.map((cat, idx) => (
               <TabsTrigger key={cat} value={cat}>
-                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                {currentLanguage === "en"
+                  ? cat.charAt(0).toUpperCase() + cat.slice(1)
+                  : categories_bn[idx]}
               </TabsTrigger>
             ))}
-            <TabsTrigger value="all">All</TabsTrigger>
+            <TabsTrigger value="all">
+              {currentLanguage === "en" ? "All" : "সব"}
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { createContext, useState } from "react";
 
 interface LanguageContextType {
-  currentLanguage?: string;
+  currentLanguage: "en" | "bn";
   toggleLanguage: () => void;
 }
 
@@ -15,7 +15,7 @@ interface LanguageProviderProps {
 }
 
 const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [currentLanguage, setCurrentLanguage] = useState("en");
+  const [currentLanguage, setCurrentLanguage] = useState<"en" | "bn">("en");
 
   const toggleLanguage = () => {
     if (currentLanguage === "en") {

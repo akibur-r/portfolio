@@ -2,11 +2,17 @@
   "name": "Md. Akibur Rahman",
   "email": "",
   "handle": "akibur_r",
-  "about_me_brief": [
+  "about_me_brief_en": [
     "I’m a final-year Computer Science undergrad at Port City International University, passionate about building web apps and solving analytical problems.",
     "Recently, I have built some full-stack projects with intuitive user interfaces using MERN stack.",
     "Over the past few years, I’ve participated in 12 divisional and national-level programming contests, including ICPCs, NCPC, and IUPCs. Preparing for these contests helped me develop a grasp of Data Structures and Algorithms, along with fundamentals of CS. I'm rated Pupil on Codeforces and 3★ on CodeChef. I enjoy solving analytical problems and pushing my brain to the limit.",
     "Outside tech, I enjoy movies, TV series, and astronomy."
+  ],
+  "about_me_brief_bn": [
+    "আমি পোর্ট সিটি ইন্টারন্যাশনাল ইউনিভার্সিটিতে অধ্যয়নরত একজন কম্পিউটার সায়েন্স বিষয়ে স্নাতক এর শিক্ষার্থী। আমি ওয়েব অ্যাপ বানানোয় এবং চিন্তামূলক সমস্যা সমাধানে আগ্রহ খুঁজে পাই।",
+    "গত কিছুদিনে আমি MERN ব্যবহার করে সুন্দর দেখতে কয়েকটা ফুল-স্ট্যাক প্রজেক্ট বানিয়েছি।",
+    "গত কয়েক বছরে আমি ১২টি জাতীয় এবং অন্তঃবিভাগীয় প্রোগ্রামিং কনটেস্টে অংশগ্রহণ করেছি। এর মধ্যে ছিল ICPC, NCPC, এবং বেশকিছু আন্তঃবিশ্ববিদ্যালয় প্রতিযোগিতা। এই প্রতিযোগিতাগুলোর প্রস্তুতি নেওয়ার সুবাদে কম্পিউটার সায়েন্সের মূল বিষয়গুলোর পাশাপাশি ডেটা স্ট্রাকচার ও অ্যালগরিদম নিয়ে আমার কিছুটা জানাশোনা হয়েছে। আমি কোডফোর্সেসে Pupil এবং কোডশেফে 3★ টাইটেল অর্জন করেছি। চিন্তামূলক সমস্যা সমাধানের চেষ্টায় মাথা খাটানো বেশ উপভোগ করি আমি।",
+    "এসব প্রযুক্তিগত বিষয়ের বাইরে আমি সিনেমা ও টিভি সিরিজ দেখতে এবং জ্যোতির্বিদ্যা নিয়ে ঘাটাঘাটি করতে পছন্দ করি।."
   ],
   "facebook": "",
   "linkedin": "",

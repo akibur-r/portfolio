@@ -16,6 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import useLanguage from "@/hooks/useLanguage/useLanguage";
 import { BookOpen, Code, Play } from "lucide-react";
 import { BiDevices, BiServer } from "react-icons/bi";
 import { Link } from "react-router";
@@ -26,6 +27,8 @@ type ProjectCardProps = {
   project: ProjectType;
 };
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const { currentLanguage } = useLanguage();
+
   const cardActionButtonStyle =
     "flex items-center gap-1 border px-2 py-1 rounded w-full hover:bg-accent/10 hover:text-accent cursor-pointer";
 
@@ -45,7 +48,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         {github_link.length > 1 ? (
           <DropdownMenu>
             <DropdownMenuTrigger className={cardActionButtonStyle}>
-              <Code className="w-3 h-3" /> code
+              <Code className="w-3 h-3" />{" "}
+              {currentLanguage === "en" ? "code" : "কোড"}
             </DropdownMenuTrigger>
             <DropdownMenuContent className="dark:border-accent/10 rounded min-w-0 space-y-1">
               <DropdownMenuItem className="p-0" asChild>
@@ -54,7 +58,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   to={github_link[0]}
                   className={`${cardActionButtonStyle} text-neutral-800  dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
                 >
-                  <BiDevices className="w-2 h-2" /> client
+                  <BiDevices className="w-2 h-2" />
+                  {currentLanguage === "en" ? "client" : "ফ্রন্টএন্ড"}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="p-0" asChild>
@@ -63,7 +68,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   to={github_link[1]}
                   className={`${cardActionButtonStyle} text-neutral-800 dark:text-neutral-200 hover:text-accent dark:hover:text-accent rounded-xs`}
                 >
-                  <BiServer className="w-2 h-2" /> server
+                  <BiServer className="w-2 h-2" />
+                  {currentLanguage === "en" ? "server" : "ব্যাকএন্ড"}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -74,14 +80,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             to={github_link[0]}
             className={cardActionButtonStyle}
           >
-            <Code className="w-3 h-3" /> code
+            <Code className="w-3 h-3" />
+            {currentLanguage === "en" ? "code" : "কোড"}
           </Link>
         )}
         <Link target="_blank" to={live_link} className={cardActionButtonStyle}>
-          <Play className="w-3 h-3" /> live
+          <Play className="w-3 h-3" />
+          {currentLanguage === "en" ? "live" : "লাইভ"}
         </Link>
         <Link to={`/project/${id}`} className={cardActionButtonStyle}>
-          <BookOpen className="w-3 h-3" /> study
+          <BookOpen className="w-3 h-3" />
+          {currentLanguage === "en" ? "study" : "বিস্তারিত"}
         </Link>
       </div>
     </>
@@ -109,7 +118,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="space-y-1">
           <h3 className="space-x-1 text-neutral-700 dark:text-neutral-300">
             <span className="text-xs text-accent select-none">//</span>
-            <span>Built with</span>
+            <span>
+              {currentLanguage === "en" ? "Built with" : "ব্যবহৃত প্রযুক্তি"}
+            </span>
           </h3>
           <div className="flex flex-wrap gap-2">
             {techStack.map((tech) => (
@@ -120,9 +131,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="space-y-1">
           <h3 className="space-x-1 text-neutral-700 dark:text-neutral-300">
             <span className="text-xs text-accent select-none">//</span>
-            <span>Screenshots</span>
-            <span className="text-xs text-accent md:hidden">
-              (click on image to view)
+            <span>
+              {currentLanguage === "en" ? "Screenshots" : "স্ক্রিনশট"}
+            </span>
+            <span className="text-xs text-accent lg:hidden">
+              {currentLanguage === "en"
+                ? "(click on image to view)"
+                : "(দেখার জন্য ছবিতে ক্লিক করুন)"}
             </span>
           </h3>
           <div className="flex flex-wrap gap-2">

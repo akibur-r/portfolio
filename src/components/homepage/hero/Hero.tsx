@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import useLanguage from "@/hooks/useLanguage/useLanguage";
 import { handleCopyEmail } from "@/utils/functions/handleCopyEmail";
 import { handleCopyPhoneNumber } from "@/utils/functions/handleCopyPhoneNumber";
 import {
@@ -30,16 +31,21 @@ type HeroProps = {
 };
 
 const Hero: React.FC<HeroProps> = ({ className }) => {
+  const { currentLanguage } = useLanguage();
   return (
     <section
       className={`flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between gap-2 sm:gap-8 ${className}`}
     >
       {/* texts */}
       <main className="flex flex-col gap-2 text-center sm:text-left">
-        <h2 className="text-2xl font-semibold">Md. Akibur Rahman</h2>
+        <h2 className="text-2xl font-semibold">
+          {currentLanguage === "en" ? "Md. Akibur Rahman" : "মোঃ আকিবুর রহমান"}
+        </h2>
         <div>
           <p className="max-w-md text-sm text-neutral-700 dark:text-neutral-400">
-            Web Developer & Competitive Programmer
+            {currentLanguage === "en"
+              ? "Web Developer & Competitive Programmer"
+              : "ওয়েব ডেভেলপার ও প্রতিযোগিতামূলক প্রোগ্রামার"}
           </p>
           <p className="max-w-md items-center text-xs gap-1.5 inline-flex text-neutral-700 dark:text-neutral-400">
             <MapPin className="w-3.5" />
@@ -48,7 +54,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
               to={"https://maps.app.goo.gl/62XNVUswsrZcYoVy5"}
               className="hover:underline"
             >
-              Chattogram, Bangladesh
+              {currentLanguage === "en"
+                ? "Chattogram, Bangladesh"
+                : "চট্টগ্রাম, বাংলাদেশ"}
             </Link>
           </p>
         </div>
@@ -95,7 +103,8 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     to={"mailto:akibur.pciu@gmail.com"}
                     className="flex items-center gap-1 text-accent h-full w-full px-2 py-1.5"
                   >
-                    <MailPlus className="w-2 h-2" /> Send an Email
+                    <MailPlus className="w-2 h-2" />{" "}
+                    {currentLanguage === "en" ? "Send an Email" : "ইমেইল পাঠান"}
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -122,7 +131,8 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     to={"tel:+8801934921875"}
                     className="flex items-center gap-2 text-accent h-full w-full px-2 py-1.5"
                   >
-                    <Phone className="w-2 h-2" /> Make a Call
+                    <Phone className="w-2 h-2" />{" "}
+                    {currentLanguage === "en" ? "Make a Call" : "কল করুন"}
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="p-0">
@@ -131,7 +141,10 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     to={"https://wa.me/1934921875?text=Hello,%20"}
                     className="flex items-center gap-2 text-accent h-full w-full px-2 py-1.5"
                   >
-                    <SiWhatsapp className="w-2 h-2" /> Chat on WhatsApp
+                    <SiWhatsapp className="w-2 h-2" />
+                    {currentLanguage === "en"
+                      ? "Chat on WhatsApp"
+                      : "হোয়াটসঅ্যাপে মেসেজ দিন"}
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -151,7 +164,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     className="flex items-center gap-2 h-full w-full px-2 py-1.5 text-accent transition-all duration-100 hover:underline"
                   >
                     <SiCodeforces />
-                    <span>Codeforces</span>
+                    <span>
+                      {currentLanguage === "en" ? "Codeforces" : "কোডফোর্সেস"}
+                    </span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="p-0">
@@ -161,7 +176,9 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
                     className="flex items-center gap-2 h-full w-full px-2 py-1.5 text-accent transition-all duration-100 hover:underline"
                   >
                     <SiCodechef />
-                    <span>CodeChef</span>
+                    <span>
+                      {currentLanguage === "en" ? "CodeChef" : "কোডশেফ"}
+                    </span>
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -176,7 +193,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
               className="text-sm text-accent hover:text-neutral-700 dark:hover:text-neutral-400 hover:underline flex items-center gap-1"
             >
               <IoMdLink />
-              Resume
+              {currentLanguage === "en" ? "Resume" : "রেজ্যুমে"}
             </Link>
           </div>
         </div>

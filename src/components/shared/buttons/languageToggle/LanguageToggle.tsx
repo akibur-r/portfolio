@@ -26,7 +26,9 @@ const LanguageToggle = () => {
           />
         </Button>
       </TooltipTrigger>
-      <TooltipContent side="bottom">Switch Language</TooltipContent>
+      <TooltipContent side="bottom">
+        {currentLanguage === "en" ? "Switch Language" : "ভাষা বদলান"}
+      </TooltipContent>
     </Tooltip>
   );
 };

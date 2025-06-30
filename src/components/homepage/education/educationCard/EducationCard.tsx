@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import useLanguage from "@/hooks/useLanguage/useLanguage";
 import type { EducationType } from "@/types/education/EducationType";
 import { isAfter } from "date-fns";
 
@@ -6,6 +7,7 @@ type EducationCardProps = {
   educationLevel: EducationType;
 };
 const EducationCard: React.FC<EducationCardProps> = ({ educationLevel }) => {
+  const { currentLanguage } = useLanguage();
   const { title, institute, location, starting_year, passing_year } =
     educationLevel;
   return (
@@ -19,7 +21,9 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationLevel }) => {
             {starting_year.split("-").at(0) +
               " - " +
               passing_year.split("-").at(0) +
-              (isAfter(passing_year, new Date()) ? " " + "(exp.)" : "")}
+              (isAfter(passing_year, new Date())
+                ? " " + `(${currentLanguage === "en" ? "exp." : "সম্ভাব্য"})`
+                : "")}
           </span>
         </CardTitle>
       </CardHeader>

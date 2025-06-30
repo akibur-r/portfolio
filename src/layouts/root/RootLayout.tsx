@@ -1,12 +1,18 @@
 import Footer from "@/components/shared/footer/Footer";
 import Navbar from "@/components/shared/navbar/Navbar";
 import { Toaster } from "@/components/ui/sonner";
+import useLanguage from "@/hooks/useLanguage/useLanguage";
 import { Outlet } from "react-router";
 
 const RootLayout = () => {
+  const { currentLanguage } = useLanguage();
   return (
     <>
-      <div className="container font-primary relative mx-auto scroll-my-12 text-neutral-800 dark:text-neutral-300 w-full max-w-[45rem]">
+      <div
+        className={`container ${
+          currentLanguage === "en" ? "font-primary" : "font-bangla"
+        } relative mx-auto scroll-my-12 text-neutral-800 dark:text-neutral-300 w-full max-w-[45rem]`}
+      >
         <Navbar />
 
         <main className="pt-6 px-4 md:px-2 md:pt-14 pb-3 space-y-8">

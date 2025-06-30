@@ -4,9 +4,11 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import useLanguage from "@/hooks/useLanguage/useLanguage";
 import { Info } from "lucide-react";
 
 const RickRoll = () => {
+  const { currentLanguage } = useLanguage();
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -24,7 +26,9 @@ const RickRoll = () => {
           <Info />
         </Button>
       </TooltipTrigger>
-      <TooltipContent>Very Serious Button</TooltipContent>
+      <TooltipContent>
+        {currentLanguage === "en" ? "Very Serious Button" : "সিরিয়াস বাটন"}
+      </TooltipContent>
     </Tooltip>
   );
 };

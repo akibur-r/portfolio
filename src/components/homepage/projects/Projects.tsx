@@ -5,7 +5,7 @@ import ProjectCard from "./projectCard/ProjectCard";
 const Projects = () => {
   return (
     <section className="text-sm">
-      <SectionHeading name="My Projects" />
+      <SectionHeading name_en="My Projects" name_bn="আমার প্রজেক্টসমূহ" />
       <main className="grid grid-cols-1 gap-3">
         {projects
           .sort((a, b) => b.id.localeCompare(a.id))
