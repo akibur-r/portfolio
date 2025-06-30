@@ -13,6 +13,7 @@ const Technologies = () => {
     "tools",
   ];
   const [activeTab, setActiveTab] = useState("languages");
+  const [tabChanged, setTabChanged] = useState(false);
   const containerRef = useRef<HTMLElement>(null);
 
   const allTech = categories.flatMap((cat) =>
@@ -31,27 +32,24 @@ const Technologies = () => {
     const element = containerRef.current;
     if (!element) return;
 
-    const rect = element.getBoundingClientRect();
-    const isPartiallyInView = rect.top < window.innerHeight && rect.bottom > 0;
+    const sectionBottom = element.offsetTop + element.offsetHeight;
 
-    if (isPartiallyInView) {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      const scrollToPosition = scrollTop + rect.bottom;
-
-      window.scrollTo({
-        top: scrollToPosition,
-        behavior: "smooth",
-      });
+    if (tabChanged) {
+      if (window.scrollY + window.innerHeight < sectionBottom) {
+        window.scrollTo({
+          top: sectionBottom - window.innerHeight + 10,
+          behavior: "smooth",
+        });
+      }
     }
-  }, [activeTab]);
+  }, [activeTab, tabChanged]);
 
   return (
     <section ref={containerRef}>
       <SectionHeading name="Technologies" />
       <main>
         <Tabs value={activeTab} onValueChange={setActiveTab}>
-          <TabsList>
+          <TabsList onClick={() => setTabChanged(true)}>
             {categories.map((cat) => (
               <TabsTrigger key={cat} value={cat}>
                 {cat.charAt(0).toUpperCase() + cat.slice(1)}
